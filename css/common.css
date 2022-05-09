@@ -446,7 +446,7 @@ a.tag:hover {
 
 
     #side {
-        width: clac(100vw + 11px);
+        width: calc(100vw + 11px);
         box-sizing: border-box;
         border-left: #AAA 1px solid;
         border-left: #FFFA 1px solid;
