@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Microsoft YaHei', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Microsoft YaHei', 'Noto Sans SC', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background-color: #111112;
     font-size: 16px;
     display: flex;
@@ -88,11 +88,13 @@ h3 {
 #body>.header {
     padding: 64px 12px;
     text-align: center;
-    font-size: 64px;
-    font-weight: bold;
+    font-size: 72px;
+    font-weight: 700;
     color: #FFF;
     pointer-events: none;
     user-select: none;
+    font-family: 'Roboto', sans-serif;
+    animation: content-load 1s;
 }
 
 #body>.header>.spr {
@@ -103,17 +105,28 @@ h3 {
 }
 
 #body>.header>.mr {
-    font-size: 52px;
+    font-size: 62px;
     position: relative;
-    bottom: 42px;
+    bottom: 42.5px;
     text-shadow:
         0 0 4px rgba(255, 255, 255, 0.8),
         0 0 16px rgba(255, 255, 255, 0.6),
         0 0 64px rgba(255, 255, 255, 0.6);
 }
 
+#body>.header.hide>.mr {
+    font-size: 0px;
+}
+
 #content {
     text-align: center;
+    animation: content-load 1s;
+}
+
+@keyframes content-load {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .music-list {
@@ -300,10 +313,7 @@ a.tag:hover {
     } 
 
     #body>.header {
-        padding: 64px 12px;
-        text-align: center;
-        font-size: 32px;
-        font-weight: bold;
+        font-size: 36px;
         color: #FFF;
         pointer-events: none;
         user-select: none;
@@ -317,9 +327,9 @@ a.tag:hover {
     }
     
     #body>.header>.mr {
-        font-size: 26px;
+        font-size: 32px;
         position: relative;
-        bottom: 20px;
+        bottom: 22px;
         text-shadow:
             0 0 2px rgba(255, 255, 255, 0.8),
             0 0 8px rgba(255, 255, 255, 0.6),
