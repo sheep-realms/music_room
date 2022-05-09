@@ -312,6 +312,8 @@ h3 {
 
 a.tag {
     color: #FFF;
+    background-color: #222;
+    background-color: rgba(255, 255, 255, 0.133);
     background-color: #FFF2;
     padding: 2px 8px;
     border-radius: 5px;
@@ -322,6 +324,7 @@ a.tag {
 
 a.tag:hover {
     background-color: #444;
+    background-color: rgba(255, 255, 255, 0.267);
     background-color: #FFF4;
 }
 
