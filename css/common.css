@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #111112;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+h3 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 42px;
+    border-bottom: #FFFA 1px solid;
+    letter-spacing: 0.15em;
+}
+
+.bg {
+    opacity: 0.35;
+} 
+
+.bg>div {
+    position: fixed;
+    background-color: #FFF;
+}
+
+.bg .h {
+    height: 100vh;
+    width: 1px;
+    left: -10px;
+    top: 0;
+    z-index: 1;
+}
+
+.bg .w {
+    height: 1px;
+    width: 100vw;
+    left: 0;
+    top: -10px;
+    z-index: 1;
+}
+
+.bg .b {
+    height: 32px;
+    width: 32px;
+    left: -100px;
+    top: -100px;
+    box-sizing: border-box;
+    background-color: #111112;
+    border: #FFF 1px solid;
+    z-index: 2;
+}
+
+.bg.active {
+    opacity: 0.5;
+}
+
+.bg.active .b {
+    box-shadow: 0 0 0 5px #111112 inset, 0 0 0 6px #fff inset;
+    border: #111112 1px solid;
+    z-index: 0;
+}
+
+#body {
+    flex: 1;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    z-index: 10;
+}
+
+#body::-webkit-scrollbar {
+    background-color: #FFF2;
+    width: 6px;
+    height: 6px;
+
+}
+
+#body::-webkit-scrollbar-thumb {
+    background-color: #FFF8;
+}
+
+#body>.header {
+    padding: 64px 12px;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    color: #FFF;
+    pointer-events: none;
+    user-select: none;
+}
+
+#body>.header>.spr {
+    -webkit-text-stroke-color: #FFF;
+    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+}
+
+#body>.header>.mr {
+    font-size: 52px;
+    position: relative;
+    bottom: 42px;
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.8),
+        0 0 16px rgba(255, 255, 255, 0.6),
+        0 0 64px rgba(255, 255, 255, 0.6);
+}
+
+#content {
+    text-align: center;
+}
+
+.music-list {
+    margin: 0 auto;
+    width: calc(100vw - max(30vw, 400px) - 8px);
+    box-sizing: border-box;
+}
+
+.music-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 220px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.music-box .music-icon {
+    --img: url(../res/img/music_icon/unknow.png);
+    width: 220px;
+    height: 220px;
+    background-color: #888;
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    box-shadow: 0 0 0 #FFF;
+    transition: filter .3s, box-shadow .3s;
+}
+
+.music-box:hover .music-icon {
+    filter: brightness(1);
+    box-shadow: 0 0 16px #FFF8;
+}
+
+.music-box.selected .music-icon {
+    filter: brightness(1);
+    box-shadow: 0 0 20px #FFFF;
+}
+
+.music-box .music-info {
+    color: #FFF;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: 220px;
+    padding-top: 8px;
+}
+
+.music-box .music-info .title {
+    font-weight: 500;
+    font-size: 16px;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+.music-box .music-info .author {
+    font-size: 14px;
+    opacity: 0.65;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+.music-box .music-info .from {
+    font-size: 12px;
+    opacity: 0.55;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 300;
+}
+
+
+
+#side {
+    width: max(30vw, 400px);
+    box-sizing: border-box;
+    background-color: #FFF2;
+    border-right: #FFFA 1px solid;
+    height: 100vh;
+    opacity: 1;
+    transition: width .5s, opacity .5s;
+    overflow: hidden;
+    position: relative;
+    z-index: 50;
+}
+
+#side.hide {
+    opacity: 0;
+    width: 0;
+}
+
+#side .side-box {
+    width: max(30vw, 400px);
+    height: 100vh;
+    color: #FFF;
+    box-sizing: border-box;
+    padding: 50px;
+    position: relative;
+    overflow: scroll;
+}
+
+#side .side-box::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0;
+    height: 0;
+}
+
+#side .side-box .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    line-height: 32px;
+    cursor: pointer;
+    opacity: 0.5;
+    padding: 5px 10px;
+}
+
+#side .side-box .close .ico {
+    font-size: 32px;
+    position: relative;
+    bottom: 2px;
+    margin-left: 6px;
+}
+
+#side .side-box .close:hover {
+    opacity: 1;
+}
+
+#side .side-box .icon {
+    margin: 20px auto 30px auto;
+    --img: url(../res/img/music_icon/unknow.png);
+    width: 220px;
+    height: 220px;
+    background-color: #888;
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+}
+
+#side .side-box .title {
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+#side .side-box .info {
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+a.tag {
+    color: #FFF;
+    background-color: #FFF2;
+    padding: 2px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 6px 6px 0;
+}
+
+a.tag:hover {
+    background-color: #FFF4;
+}
+
+
+@media only screen and (max-width:980px){
+    .bg {
+        display: none;
+    } 
+
+    #body>.header {
+        padding: 64px 12px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #FFF;
+        pointer-events: none;
+        user-select: none;
+    }
+    
+    #body>.header>.spr {
+        -webkit-text-stroke-color: #FFF;
+        -webkit-text-stroke-width: 0.02em;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.5;
+    }
+    
+    #body>.header>.mr {
+        font-size: 26px;
+        position: relative;
+        bottom: 20px;
+        text-shadow:
+            0 0 2px rgba(255, 255, 255, 0.8),
+            0 0 8px rgba(255, 255, 255, 0.6),
+            0 0 32px rgba(255, 255, 255, 0.6);
+    }
+
+
+	.music-list {
+        margin: 0 auto;
+        width: calc(100vw - 10px);
+        box-sizing: border-box;
+    }
+    
+    .music-box {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        width: auto;
+        margin: 20px;
+        cursor: pointer;
+    }
+    
+    .music-box .music-icon {
+        --img: url(../res/img/music_icon/unknow.png);
+        width: 60px;
+        height: 60px;
+        background-color: #888;
+        background-image: var(--img);
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.8);
+        box-shadow: 0 0 0 #FFF;
+        transition: filter .3s, box-shadow .3s;
+    }
+    
+    .music-box:hover .music-icon {
+        filter: unset;
+        box-shadow: unset;
+    }
+    
+    .music-box.selected .music-icon {
+        filter: unset;
+        box-shadow: unset;
+    }
+    
+    .music-box .music-info {
+        flex: 1;
+        color: #FFF;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        width: auto;
+        padding-top: unset;
+    }
+    
+    .music-box .music-info .title {
+        font-weight: 500;
+        font-size: 16px;
+        max-width: calc(100% - 12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        opacity: 0.9;
+        padding-left: 12px;
+    }
+    
+    .music-box .music-info .author {
+        font-size: 14px;
+        opacity: 0.65;
+        max-width: calc(100% - 12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 300;
+        padding-left: 12px;
+    }
+    
+    .music-box .music-info .from {
+        font-size: 12px;
+        opacity: 0.55;
+        max-width: calc(100% - 12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 300;
+        padding-left: 12px;
+    }
+
+
+
+    #side {
+        width: clac(100vw + 1px);
+        box-sizing: border-box;
+        border-left: #FFFA 1px solid;
+        height: 100vh;
+        position: fixed;
+        left: -1px;
+        top: 0;
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+        transition: width .5s, opacity .5s, left .5s;
+    }
+    
+    #side.hide {
+        width: 100vw;
+        left: calc(100vw + 5px);
+    }
+    
+    #side .side-box {
+        width: 100vw;
+        height: 100vh;
+        color: #FFF;
+        box-sizing: border-box;
+        padding: 50px;
+        position: relative;
+    }
+    
+    #side .side-box .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        line-height: 32px;
+        cursor: pointer;
+        opacity: 0.5;
+        padding: 5px 10px;
+    }
+    
+    #side .side-box .close .ico {
+        font-size: 32px;
+        position: relative;
+        bottom: 2px;
+        margin-left: 6px;
+    }
+    
+    #side .side-box .close:hover {
+        opacity: 1;
+    }
+    
+    #side .side-box .icon {
+        margin: 20px auto 30px auto;
+        --img: url(../res/img/music_icon/unknow.png);
+        width: 220px;
+        height: 220px;
+        background-color: #888;
+        background-image: var(--img);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    #side .side-box .title {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 26px;
+    }
+    
+    #side .side-box .info {
+        font-weight: 300;
+        font-size: 16px;
+        opacity: 0.8;
+    }
+}
