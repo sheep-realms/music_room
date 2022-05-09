@@ -86,7 +86,7 @@ h3 {
 }
 
 #body>.header {
-    padding: 64px 12px;
+    padding: 64px 12px 26px 12px;
     text-align: center;
     font-size: 72px;
     font-weight: 700;
@@ -116,6 +116,19 @@ h3 {
 
 #body>.header.hide>.mr {
     font-size: 0px;
+}
+
+#body>.introduction {
+    padding: 10px;
+    margin: 0 auto 70px auto;
+    width: min(88%, 800px);
+    color: #FFFA;
+    text-align: center;
+    animation: content-load 1s;
+}
+
+#body>.introduction p {
+    padding: 0.5em 0;
 }
 
 #content {
