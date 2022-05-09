@@ -17,6 +17,30 @@ let template = [
                 time: 92
             }
         ]
+    }, {
+        type: "music",
+        title: "Roundabout",
+        author: "Yes",
+        from: "Yesstory",
+        icon: "163/20789751.jpg",
+        play: {
+            m163: "20789751"
+        },
+        use: [
+            {
+                bvid: "BV1o5411W76Z",
+                time: 86
+            }, {
+                bvid: "BV14J411W7gs",
+                time: 6
+            }, {
+                bvid: "BV1LE411X74u",
+                time: 159
+            }, {
+                bvid: "BV1WJ411g7NP",
+                time: 18
+            }
+        ]
     }
 ]
 
@@ -328,7 +352,9 @@ let mdata = [
                 time: 28
             }
         ]
-    }, {
+    },
+    template[1],
+    {
         type: "music",
         title: "Funky Stars",
         author: "BQuazar",
@@ -505,28 +531,9 @@ let mdata = [
     }, {
         type: "h3",
         title: "2019年"
-    }, {
-        type: "music",
-        title: "Roundabout",
-        author: "Yes",
-        from: "Yesstory",
-        icon: "163/20789751.jpg",
-        play: {
-            m163: "20789751"
-        },
-        use: [
-            {
-                bvid: "BV14J411W7gs",
-                time: 6
-            }, {
-                bvid: "BV1LE411X74u",
-                time: 159
-            }, {
-                bvid: "BV1WJ411g7NP",
-                time: 18
-            }
-        ]
-    }, {
+    },
+    template[1],
+    {
         type: "music",
         title: "Revenge",
         author: "CaptainSparklez",
