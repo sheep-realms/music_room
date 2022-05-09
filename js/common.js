@@ -79,6 +79,7 @@ $('#content').on('click', '.music-box', function() {
 
 $('#side').on('click', '.close', function() {
     $('#side').addClass('hide');
+    $('.music-box.selected').removeClass('selected');
 });
 
 $(document).mousemove(function(e){
